@@ -12,14 +12,6 @@ const questions = [
 export default function Identification() {
   return (
     <section className="relative bg-bone py-24 md:py-32 overflow-hidden">
-      {/* Decorative number */}
-      <div
-        className="absolute -top-10 right-4 md:right-12 font-display text-[12rem] md:text-[20rem] leading-none text-sage/[0.04] select-none pointer-events-none"
-        aria-hidden
-      >
-        03
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
         <div className="max-w-3xl" data-aos="fade-up">
           <span className="eyebrow text-moss">Os sinais</span>
