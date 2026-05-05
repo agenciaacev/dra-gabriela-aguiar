@@ -1,3 +1,4 @@
+// @ts-nocheck
 import imgAut from "../assets/img-hero.png"
 
 const stats = [

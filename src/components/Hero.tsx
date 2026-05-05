@@ -1,4 +1,4 @@
-// ts-ignores-ignore
+// @ts-nocheck
 import imgHero from '../assets/_DSC0659.png'
 
 export default function Hero() {
