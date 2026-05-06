@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 const steps = [
   {
     title: "Você entra em contato pelo WhatsApp",
@@ -49,6 +51,25 @@ const faq = [
 ];
 
 export default function Process() {
+  const [floating, setFloating] = useState(false);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setFloating(true), 900);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="processo" className="relative bg-bone py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -64,11 +85,12 @@ export default function Process() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
           {steps.map((s, i) => (
             <div
               key={s.title}
-              className="relative bg-cream p-7 hover:bg-leaf/30 transition group min-h-[280px] flex flex-col rounded-2xl"
+              className={`relative bg-cream p-7 hover:bg-leaf/30 transition group min-h-[280px] flex flex-col rounded-2xl ${floating ? "floaty" : ""}`}
+              style={floating ? { animationDelay: `${i * 0.4}s` } : {}}
               data-aos="fade-up"
               data-aos-delay={i * 100}
             >

@@ -28,43 +28,43 @@ export default function Hero() {
           {/* degradê esquerda — só no desktop, funde com o painel verde */}
           <div
             className="hidden lg:block absolute inset-y-0 left-0 w-2/5"
-            style={{ background: 'linear-gradient(to right, #1B2C25, transparent)' }}
+            style={{ background: 'linear-gradient(to right, #9fb38a, transparent)' }}
           />
           {/* degradê baixo — desktop e mobile */}
           <div
             className="absolute bottom-0 inset-x-0 h-24 lg:h-1/3"
-            style={{ background: 'linear-gradient(to top, #1B2C25, transparent)' }}
+            style={{ background: 'linear-gradient(to top, #9fb38a, transparent)' }}
           />
           {/* degradê topo — mobile: suaviza transição com o nav */}
           <div
             className="absolute top-0 inset-x-0 h-16 lg:hidden"
-            style={{ background: 'linear-gradient(to bottom, rgba(27,44,37,0.6), transparent)' }}
+            style={{ background: 'linear-gradient(to bottom, rgba(159,179,138,0.6), transparent)' }}
           />
         </div>
 
         {/* LEFT — conteúdo */}
         <div
-          className="relative z-10 flex items-center bg-[#1B2C25] px-6 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-24"
+          className="relative z-10 flex items-center bg-[#9fb38a] px-6 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-24"
           
         >
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-3 mb-10">
-              <span className="w-8 h-px bg-leaf/70" />
-              <span className="eyebrow text-leaf/80">
+              <span className="w-8 h-px bg-cream/70" />
+              <span className="eyebrow text-cream">
                 Medicina Integrativa · Saúde Mental · Emagrecimento
               </span>
             </div>
 
-            <h1 className="font-display text-cream text-[2.6rem] sm:text-5xl md:text-6xl leading-[1.06] tracking-tight"
+            <h1 className="font-display text-sage text-[2.6rem] sm:text-5xl md:text-6xl leading-[1.06] tracking-tight"
               data-aos="fade-right"
             >
               Cuidar da mente, do metabolismo e do corpo com uma{' '}
-              <em className="italic text-leaf font-normal not-italic">
+              <em className="italic text-cream font-normal">
                 medicina que enxerga você por inteiro.
               </em>
             </h1>
 
-            <p className="mt-7 text-cream/75 text-base md:text-[17px] leading-relaxed font-light max-w-md" data-aos="fade-right">
+            <p className="mt-7 text-cream text-base md:text-[17px] leading-relaxed font-light max-w-md" data-aos="fade-right">
               A Dra. Gabriela Aguiar une saúde mental, equilíbrio metabólico e
               emagrecimento em uma abordagem médica personalizada, pensada para
               quem deseja recuperar qualidade de vida com ciência e estratégia.
@@ -80,20 +80,20 @@ export default function Hero() {
               </a>
               <a
                 href="#sobre"
-                className="inline-flex items-center gap-3 text-cream/70 hover:text-cream text-xs tracking-wider px-2 py-3 transition"
+                className="inline-flex items-center gap-3 text-cream hover:text-cream/80 text-xs tracking-wider px-2 py-3 transition"
               >
-                <span className="w-6 h-px bg-cream/50" />
+                <span className="w-6 h-px bg-cream" />
                 Conhecer a abordagem
               </a>
             </div>
 
-            <div className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-leaf/60 text-[10px] tracking-[0.22em] uppercase">
+            <div className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-cream/80 text-[10px] tracking-[0.22em] uppercase">
               <span>Medicina Integrativa</span>
-              <span className="text-leaf/25">·</span>
+              <span className="text-cream/40">·</span>
               <span>Saúde Mental</span>
-              <span className="text-leaf/25">·</span>
+              <span className="text-cream/40">·</span>
               <span>Emagrecimento</span>
-              <span className="text-leaf/25">·</span>
+              <span className="text-cream/40">·</span>
               <span>Saúde Metabólica</span>
             </div>
           </div>

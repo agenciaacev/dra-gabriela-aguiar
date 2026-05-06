@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 // @ts-ignore
-import logo from "../assets/logo1.webp";
+import logoLight from "../assets/logo.webp";
+// @ts-ignore
+import logoDark from "../assets/logo2.webp";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,8 +24,22 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between py-5">
 
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="Logo" className="h-[35px] w-auto" />
+        <a
+          href="#top"
+          className="flex items-center gap-2 shrink-0"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          {/* Mobile: sempre logoDark (fundo branco fixo) */}
+          <img src={logoDark} alt="Logo" className="lg:hidden h-[26px] w-auto" />
+          {/* Desktop: troca com o scroll */}
+          <img
+            src={scrolled ? logoDark : logoLight}
+            alt="Logo"
+            className="hidden lg:block h-[38px] w-auto transition-opacity duration-300"
+          />
         </a>
 
         {/* Nav central — só desktop */}

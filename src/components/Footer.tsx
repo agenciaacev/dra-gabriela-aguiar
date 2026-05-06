@@ -1,12 +1,21 @@
+// @ts-ignore
+import logo from "../assets/logo.webp";
+
 export default function Footer() {
   return (
     <footer className="bg-sage-deep text-cream/70 py-14">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid md:grid-cols-3 gap-10 items-start">
           <div>
-            <p className="font-display text-2xl text-cream tracking-tight">
-              Dra. Gabriela Aguiar
-            </p>
+            <a
+              href="#top"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              <img src={logo} alt="Dra. Gabriela Aguiar" className="h-[50px] w-auto brightness-0 invert opacity-90" />
+            </a>
             <p className="mt-3 text-sm leading-relaxed">
               Medicina Integrativa, Saúde Mental, Emagrecimento e Saúde
               Metabólica.

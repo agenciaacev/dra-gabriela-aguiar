@@ -1,5 +1,38 @@
-// @ts-nocheck
-import imgAut from "../assets/img_autho.webp"
+import { useEffect, useRef, useState } from "react";
+// @ts-ignore
+import imgAut from "../assets/img_autho.webp";
+
+const QUOTE = "“Cada paciente carrega uma história, um corpo e uma forma única de responder ao tratamento. Por isso, cuidar de saúde mental e emagrecimento exige mais do que protocolos prontos. Exige escuta, ciência e individualização.”";
+
+function useTypewriter(text: string, speed = 35) {
+  const [displayed, setDisplayed] = useState("");
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    let i = 0;
+    const timer = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(timer);
+    }, speed);
+    return () => clearInterval(timer);
+  }, [started, text, speed]);
+
+  return { displayed, ref, done: displayed.length >= text.length };
+}
 
 const stats = [
   { highlight: "Integrativa", label: "Abordagem que une mente, metabolismo e corpo" },
@@ -16,11 +49,13 @@ const seals = [
 ];
 
 export default function Authority() {
+  const { displayed, ref, done } = useTypewriter(QUOTE);
+
   return (
     <section id="sobre" className="relative bg-cream py-24 md:py-32">
       {/* Top stats bar */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="border-y border-sage/15 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-sage/10">
+        <div className="border-y border-sage/15 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-sage/10 overflow-hidden">
           {stats.map((s, i) => (
             <div
               key={s.highlight}
@@ -34,7 +69,7 @@ export default function Authority() {
                 </span>
                 <div className="h-px flex-1 bg-sage/15" />
               </div>
-              <h3 className="mt-4 font-display text-3xl md:text-4xl text-sage">
+              <h3 className="mt-4 font-display text-2xl md:text-3xl lg:text-4xl text-sage break-words">
                 {s.highlight}
               </h3>
               <p className="mt-3 text-sm text-sage/70 leading-relaxed">
@@ -49,13 +84,13 @@ export default function Authority() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 mt-24 md:mt-32 grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         {/* Photo column */}
         <div className="lg:col-span-5" data-aos="fade-right">
-          <div className="image-frame relative">
+          <div className="floaty image-frame relative" style={{ animationDelay: '1s' }}>
             <img
               src={imgAut}
               alt="Dra. Gabriela Aguiar"
               className="w-full h-[560px] object-cover grayscale-[0.1] rounded-2xl"
             />
-            <div className="absolute -bottom-6 -right-6 bg-sage text-cream px-6 py-5 max-w-[260px] shadow-soft rounded-2xl">
+            <div className="floaty absolute -bottom-6 -right-6 bg-sage text-cream px-6 py-5 max-w-[260px] shadow-soft rounded-2xl">
               <p className="font-display italic text-sm leading-snug">
                 Cada paciente carrega uma história, um corpo e uma forma única de responder ao tratamento.
               </p>
@@ -95,11 +130,12 @@ export default function Authority() {
 
           {/* Quote */}
           <figure className="mt-12 border-l-2 border-moss pl-6 md:pl-8 max-w-2xl">
-            <blockquote className="font-display italic text-xl md:text-2xl text-sage leading-snug">
-              "Cada paciente carrega uma história, um corpo e uma forma única
-              de responder ao tratamento. Por isso, cuidar de saúde mental e
-              emagrecimento exige mais do que protocolos prontos. Exige
-              escuta, ciência e individualização."
+            <blockquote
+              ref={ref as React.RefObject<HTMLQuoteElement>}
+              className="font-display italic text-xl md:text-2xl text-sage leading-snug min-h-[6rem]"
+            >
+              {displayed}
+              {!done && <span className="animate-pulse">|</span>}
             </blockquote>
             <figcaption className="mt-4 eyebrow text-moss">
               Dra. Gabriela Aguiar
