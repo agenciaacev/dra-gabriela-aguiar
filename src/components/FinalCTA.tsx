@@ -46,7 +46,7 @@ export default function FinalCTA() {
               href="https://wa.me/5500000000000"
               target="_blank"
               rel="noreferrer"
-              className="btn-primary inline-flex items-center gap-3 bg-cream text-sage px-10 py-5 text-sm tracking-widest uppercase hover:bg-leaf rounded-xl"
+              className="btn-primary inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-5 text-[15px] sm:text-[18px] tracking-widest uppercase hover:bg-[#1ebe5d] rounded-xl"
             >
               Falar com a equipe pelo WhatsApp
               <span aria-hidden>→</span>

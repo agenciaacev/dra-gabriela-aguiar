@@ -32,7 +32,7 @@ export default function Hero() {
           />
           {/* degradê baixo — desktop e mobile */}
           <div
-            className="absolute bottom-0 inset-x-0 h-24 lg:h-1/3"
+            className="absolute bottom-0 inset-x-0 h-40 lg:h-1/3"
             style={{ background: 'linear-gradient(to top, #9fb38a, transparent)' }}
           />
           {/* degradê topo — mobile: suaviza transição com o nav */}
@@ -44,10 +44,15 @@ export default function Hero() {
 
         {/* LEFT — conteúdo */}
         <div
-          className="relative z-10 flex items-center bg-[#9fb38a] px-6 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-24"
-          
+          className="relative z-10 flex items-center lg:bg-[#9fb38a] px-6 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-24 -mt-72 lg:mt-0"
         >
-          <div className="max-w-xl">
+          {/* degradê topo — mobile: funde conteúdo com a foto */}
+          <div
+            className="absolute inset-0 lg:hidden pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, #9fb38a 7rem)' }}
+          />
+
+          <div className="relative max-w-xl">
             <div className="inline-flex items-center gap-3 mb-10">
               <span className="w-8 h-px bg-cream/70" />
               <span className="eyebrow text-cream">
@@ -73,7 +78,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:items-center">
               <a
                 href="#contato"
-                className="btn-primary inline-flex items-center justify-center gap-3 bg-cream text-sage px-8 py-4 text-xs tracking-widest uppercase font-semibold hover:bg-leaf rounded-xl"
+                className="btn-primary inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 text-[13px] sm:text-[16px] tracking-widest uppercase font-semibold hover:bg-[#1ebe5d] rounded-xl"
               >
                 Falar com a equipe no WhatsApp
                 <span aria-hidden>→</span>

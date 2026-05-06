@@ -6,7 +6,6 @@ import Hero from "./components/Hero";
 import Authority from "./components/Authority";
 import Identification from "./components/Identification";
 import MentalHealth from "./components/MentalHealth";
-import Weight from "./components/Weight";
 import MindMetabolism from "./components/MindMetabolism";
 import Process from "./components/Process";
 import FinalCTA from "./components/FinalCTA";
@@ -29,7 +28,6 @@ export default function App() {
       <Authority />
       <Identification />
       <MentalHealth />
-      <Weight />
       <MindMetabolism />
       <Process />
       <FinalCTA />

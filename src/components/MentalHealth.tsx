@@ -119,7 +119,7 @@ export default function MentalHealth() {
             <div className="pt-6">
               <a
                 href="#contato"
-                className="btn-primary inline-flex items-center gap-3 bg-cream text-sage px-8 py-4 text-sm tracking-widest uppercase hover:bg-leaf rounded-xl"
+                className="btn-primary inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 text-[15px] sm:text-[18px] tracking-widest uppercase hover:bg-[#1ebe5d] rounded-xl"
               >
                 Agendar avaliação de saúde mental
                 <span aria-hidden>→</span>

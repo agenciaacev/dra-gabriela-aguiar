@@ -118,7 +118,7 @@ export default function Process() {
         <div className="mt-16 text-center" data-aos="fade-up">
           <a
             href="#contato"
-            className="btn-primary inline-flex items-center gap-3 bg-sage text-cream px-8 py-4 text-sm tracking-widest uppercase hover:bg-sage-dark rounded-xl"
+            className="btn-primary inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 text-[15px] sm:text-[18px] tracking-widest uppercase hover:bg-[#1ebe5d] rounded-xl"
           >
             Agendar minha avaliação médica
             <span aria-hidden>→</span>

@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* WhatsApp — desktop e mobile, sempre visível */}
         <a
             href="#contato"
-          className="shrink-0 inline-flex items-center gap-2 bg-sage text-cream px-4 py-2 text-[10px] tracking-widest uppercase font-semibold hover:bg-sage-dark transition rounded-xl"
+          className="shrink-0 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 text-[11px] sm:text-[14px] tracking-widest uppercase font-semibold hover:bg-[#1ebe5d] transition rounded-xl"
         >
           WhatsApp
           <span aria-hidden>→</span>

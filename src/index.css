@@ -93,24 +93,32 @@ details[open] .accordion-content {
   user-select: none;
 }
 
-/* Button hover lift */
+/* Button shimmer animation */
+@keyframes btn-shimmer {
+  0%   { left: -80%; }
+  100% { left: 130%; }
+}
+
 .btn-primary {
   position: relative;
   overflow: hidden;
-  transition: all 0.35s ease;
+  background: linear-gradient(to right, #2dd66e 0%, #25D366 55%, #1db954 100%) !important;
+  transition: transform 0.35s ease, filter 0.35s ease;
 }
 .btn-primary::after {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -80%;
+  width: 55%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+  animation: btn-shimmer 2.2s ease-in-out infinite;
 }
-.btn-primary:hover::after { left: 100%; }
-.btn-primary:hover { transform: translateY(-2px); }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
 
 /* Frame decoration for image */
 .image-frame {
