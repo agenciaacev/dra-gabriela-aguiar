@@ -1,5 +1,5 @@
 // @ts-nocheck
-import imgAut from "../assets/img-hero.png"
+import imgAut from "../assets/img_autho.webp"
 
 const stats = [
   { highlight: "Integrativa", label: "Abordagem que une mente, metabolismo e corpo" },

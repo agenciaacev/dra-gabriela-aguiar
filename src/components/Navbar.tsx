@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // @ts-ignore
-import logo from "../assets/logo1.png";
+import logo from "../assets/logo1.webp";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

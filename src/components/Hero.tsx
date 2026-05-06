@@ -1,5 +1,5 @@
 // @ts-nocheck
-import imgHero from '../assets/_DSC0659.png'
+import imgHero from '../assets/img_hero.webp'
 
 export default function Hero() {
   return (
