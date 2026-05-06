@@ -69,7 +69,7 @@ export default function Authority() {
                 </span>
                 <div className="h-px flex-1 bg-sage/15" />
               </div>
-              <h3 className="mt-4 font-display text-2xl md:text-3xl lg:text-4xl text-sage break-words">
+              <h3 className="mt-4 font-display text-2xl md:text-3xl lg:text-3xl text-sage break-words">
                 {s.highlight}
               </h3>
               <p className="mt-3 text-sm text-sage/70 leading-relaxed">
