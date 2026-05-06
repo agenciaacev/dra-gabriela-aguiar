@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef, useState } from "react";
+
 const items = [
   {
     title: "Como o estresse e a ansiedade afetam o metabolismo e o peso",
@@ -23,6 +27,20 @@ const items = [
 ];
 
 export default function MindMetabolism() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleToggle = (i: number) => {
+    const isOpening = openIndex !== i;
+    setOpenIndex(isOpening ? i : null);
+
+    if (isOpening) {
+      setTimeout(() => {
+        itemRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+  };
+
   return (
     <section
       className="relative py-28 md:py-40 overflow-hidden"
@@ -30,7 +48,7 @@ export default function MindMetabolism() {
         background: "linear-gradient(135deg, #f5f5f3 0%, #ededea 40%, #e0e8d8 100%)",
       }}
     >
-      {/* Decorative organic shapes */}
+      {/* Decorative blobs */}
       <div
         className="absolute top-20 -left-20 w-96 h-96 rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(159,179,138,0.25) 0%, transparent 70%)", filter: "blur(60px)" }}
@@ -57,37 +75,57 @@ export default function MindMetabolism() {
           </p>
         </div>
 
-        <div className="mt-20 space-y-1">
-          {items.map((item, i) => (
-            <details
-              key={item.title}
-              className="group border-t border-sage/20 last:border-b rounded-2xl overflow-hidden bg-cream/70 backdrop-blur-sm"
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
-            >
-              <summary className="grid grid-cols-12 gap-6 px-6 md:px-10 py-8 items-start hover:bg-leaf/25 transition">
-                <span className="col-span-2 md:col-span-1 font-display text-sm text-moss pt-2">
-                  0{i + 1}
-                </span>
-                <h3 className="col-span-9 md:col-span-10 font-display text-2xl md:text-3xl text-sage leading-tight">
-                  {item.title}
-                </h3>
-                <span className="col-span-1 flex justify-end">
-                  <span className="accordion-icon text-3xl text-moss leading-none">+</span>
-                </span>
-              </summary>
-              <div className="accordion-content px-6 md:px-10 pb-10">
-                <div className="grid grid-cols-12 gap-6">
-                  <div className="col-span-2 md:col-span-1" />
-                  <div className="col-span-10 md:col-span-9 space-y-4 text-sage/85 leading-relaxed text-[15px]">
-                    {item.body.map((p, idx) => (
-                      <p key={idx}>{p}</p>
-                    ))}
+        {/* ↓ gap-3.5 no lugar de space-y-1 */}
+        <div className="mt-20 flex flex-col gap-3.5">
+          {items.map((item, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={item.title}
+                ref={(el) => (itemRefs.current[i] = el)}
+                className="rounded-2xl overflow-hidden bg-cream/70 backdrop-blur-sm border border-sage/20 scroll-mt-20 transition-shadow duration-300"
+                style={{ boxShadow: isOpen ? "0 8px 40px rgba(47,74,63,0.13)" : undefined }}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <button
+                  className="w-full grid grid-cols-12 gap-6 px-6 md:px-10 py-8 items-start text-left hover:bg-leaf/25 transition"
+                  onClick={() => handleToggle(i)}
+                  aria-expanded={isOpen}
+                >
+                  <span className="col-span-2 md:col-span-1 font-display text-sm text-moss pt-2">
+                    0{i + 1}
+                  </span>
+<h3 className="col-span-9 md:col-span-10 font-display text-xl md:text-[1.6rem] text-sage leading-tight">
+                    {item.title}
+                  </h3>
+                  <span
+                    className="col-span-1 flex justify-end text-3xl text-moss leading-none transition-transform duration-300"
+                    style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                  >
+                    +
+                  </span>
+                </button>
+
+                {/* Grid rows trick para animação suave */}
+                <div
+                  className="grid transition-all duration-400 ease-in-out"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <div className="grid grid-cols-12 gap-6 px-6 md:px-10 pb-10">
+                      <div className="col-span-2 md:col-span-1" />
+                      <div className="col-span-10 md:col-span-9 space-y-4 text-sage/85 leading-relaxed text-[15px]">
+                        {item.body.map((p, idx) => (
+                          <p key={idx}>{p}</p>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </details>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
