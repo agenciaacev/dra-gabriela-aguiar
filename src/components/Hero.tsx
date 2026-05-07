@@ -1,5 +1,6 @@
 // @ts-nocheck
-import imgHero from '../assets/img_hero.webp'
+import imgHero1 from '../assets/imgidhero1.webp'
+import imgHero2 from '../assets/imgidhero2.webp'
 
 export default function Hero() {
   return (
@@ -15,11 +16,23 @@ export default function Hero() {
         >
           {/* No mobile: img com height auto para aparecer inteira */}
           {/* No desktop: absolute fill para preencher a coluna */}
+          
+          {/* Mobile image */}
           <img
-            src={imgHero}
+            src={imgHero1}
             alt="Dra. Gabriela Aguiar"
             className="
-              block w-full h-auto
+              lg:hidden block w-full h-auto
+            "
+            style={{ objectPosition: '50% 18%' }}
+          />
+
+          {/* Desktop image */}
+          <img
+            src={imgHero2}
+            alt="Dra. Gabriela Aguiar"
+            className="
+              hidden lg:block w-full h-auto
               lg:absolute lg:inset-0 lg:h-full lg:object-cover
             "
             style={{ objectPosition: '50% 18%' }}
