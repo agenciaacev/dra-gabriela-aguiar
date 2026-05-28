@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import logoBranco from "../assets/logo-text-branco.png";
 // @ts-ignore
 import logoVerde from "../assets/logo-text-verde.png";
+// @ts-ignore
+import logoSibVerde from "../assets/logo-sib-verde.png";
 import { WA_LINK } from "../lib/constants";
 
 export default function Navbar() {
@@ -19,7 +21,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-cream/90 backdrop-blur-md border-b border-sage/10"
-          : "bg-white border-b border-sage/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none"
+          : "bg-transparent border-none"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between py-5">
@@ -32,7 +34,7 @@ export default function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <img src={logoVerde} alt="Logo" className="lg:hidden h-[26px] w-auto" />
+          <img src={logoSibVerde} alt="Logo" className="lg:hidden h-[50px] w-auto" />
           <img
             src={scrolled ? logoVerde : logoBranco}
             alt="Logo"
