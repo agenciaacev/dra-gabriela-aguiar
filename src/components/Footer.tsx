@@ -1,5 +1,5 @@
 // @ts-ignore
-import logo from "../assets/logo.webp";
+import logo from "../assets/logo-sib-branco.png";
 import { WA_LINK, CONTACT } from "../lib/constants";
 
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
               <img
                 src={logo}
                 alt="Dra. Gabriela Amarante"
-                className="h-[50px] w-auto brightness-0 invert opacity-90"
+                className="h-[80px] w-auto opacity-90"
               />
             </a>
             <p className="mt-3 text-sm leading-relaxed">

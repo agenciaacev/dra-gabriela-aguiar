@@ -1,5 +1,5 @@
 // @ts-ignore
-import imgAut from "../assets/img_autho.webp";
+import imgAut from "../assets/img_hero.webp";
 
 const seals = [
   "Médica Integrativa",

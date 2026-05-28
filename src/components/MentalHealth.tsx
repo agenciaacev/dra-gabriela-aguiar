@@ -22,7 +22,7 @@ export default function MentalHealth() {
     <section
       className="relative py-28 md:py-40 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #1B2C25 0%, #2F4A3F 50%, #4a6b5c 100%)",
+        background: "linear-gradient(135deg, #1B2C25 0%, #3A5740 50%, #4A7050 100%)",
       }}
     >
       <div className="absolute inset-0 bg-noise opacity-25 mix-blend-overlay pointer-events-none" />

@@ -5,15 +5,15 @@ export default {
     extend: {
       colors: {
         sage: {
-          DEFAULT: "#2F4A3F",
-          dark: "#243A31",
+          DEFAULT: "#4A7050",
+          dark: "#3A5740",
           deep: "#1B2C25",
         },
         moss: "#9FB38A",
-        leaf: "#C7D3BE",
-        cream: "#F5F5F3",
-        bone: "#EDEDEA",
-        sand: "#E5E3DC",
+        leaf: "#C4CFBA",
+        cream: "#E8E8E2",
+        bone: "#DDDDD7",
+        sand: "#D3D3CD",
       },
       fontFamily: {
         display: ['"Playfair Display"', "serif"],
@@ -23,8 +23,8 @@ export default {
         widest: ".25em",
       },
       boxShadow: {
-        soft: "0 30px 60px -30px rgba(47, 74, 63, 0.25)",
-        card: "0 20px 40px -20px rgba(47, 74, 63, 0.18)",
+        soft: "0 30px 60px -30px rgba(74, 112, 80, 0.25)",
+        card: "0 20px 40px -20px rgba(74, 112, 80, 0.18)",
       },
       backgroundImage: {
         "noise":

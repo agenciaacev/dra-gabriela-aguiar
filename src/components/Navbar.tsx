@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 // @ts-ignore
-import logoLight from "../assets/logo.webp";
+import logoBranco from "../assets/logo-text-branco.png";
 // @ts-ignore
-import logoDark from "../assets/logo2.webp";
+import logoVerde from "../assets/logo-text-verde.png";
 import { WA_LINK } from "../lib/constants";
 
 export default function Navbar() {
@@ -32,9 +32,9 @@ export default function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <img src={logoDark} alt="Logo" className="lg:hidden h-[26px] w-auto" />
+          <img src={logoVerde} alt="Logo" className="lg:hidden h-[26px] w-auto" />
           <img
-            src={scrolled ? logoDark : logoLight}
+            src={scrolled ? logoVerde : logoBranco}
             alt="Logo"
             className="hidden lg:block h-[38px] w-auto transition-opacity duration-300"
           />

@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 :root {
-  --sage: #2f4a3f;
-  --sage-dark: #243a31;
+  --sage: #4a7050;
+  --sage-dark: #3a5740;
   --moss: #9fb38a;
-  --leaf: #c7d3be;
-  --cream: #f5f5f3;
-  --bone: #ededea;
+  --leaf: #c4cfba;
+  --cream: #e8e8e2;
+  --bone: #ddddd7;
 }
 
 html {
@@ -32,8 +32,8 @@ h1, h2, h3, h4, h5 {
 }
 
 ::selection {
-  background: #2f4a3f;
-  color: #f5f5f3;
+  background: #4a7050;
+  color: #e8e8e2;
 }
 
 /* Scrollbar refinada */

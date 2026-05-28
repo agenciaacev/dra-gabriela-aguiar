@@ -26,7 +26,7 @@ export default function MindMetabolism() {
       id="tratamento"
       className="relative py-28 md:py-40 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #f5f5f3 0%, #ededea 40%, #e0e8d8 100%)",
+        background: "linear-gradient(135deg, #e8e8e2 0%, #ddddd7 40%, #d3d3cd 100%)",
       }}
     >
       <div
