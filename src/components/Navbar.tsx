@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import logoLight from "../assets/logo.webp";
 // @ts-ignore
 import logoDark from "../assets/logo2.webp";
+import { WA_LINK } from "../lib/constants";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,6 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between py-5">
 
-        {/* Logo */}
         <a
           href="#top"
           className="flex items-center gap-2 shrink-0"
@@ -32,9 +32,7 @@ export default function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          {/* Mobile: sempre logoDark (fundo branco fixo) */}
           <img src={logoDark} alt="Logo" className="lg:hidden h-[26px] w-auto" />
-          {/* Desktop: troca com o scroll */}
           <img
             src={scrolled ? logoDark : logoLight}
             alt="Logo"
@@ -42,21 +40,21 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Nav central — só desktop */}
         <nav className={`hidden lg:flex items-center gap-10 text-sm transition-colors duration-500 ${scrolled ? "text-sage" : "text-white"}`}>
           <a href="#sobre" className="hover:text-sage transition">Sobre</a>
-          <a href="#saude-mental" className="hover:text-sage transition">Saúde Mental</a>
-          <a href="#emagrecimento" className="hover:text-sage transition">Emagrecimento</a>
+          <a href="#tratamento" className="hover:text-sage transition">Como Funciona</a>
+          <a href="#resultados" className="hover:text-sage transition">Resultados</a>
           <a href="#processo" className="hover:text-sage transition">Processo</a>
-          <a href="#faq" className="hover:text-sage transition">Dúvidas</a>
+          <a href="#faq" className="hover:text-sage transition">FAQ</a>
         </nav>
 
-        {/* WhatsApp — desktop e mobile, sempre visível */}
         <a
-            href="#contato"
+          href={WA_LINK}
+          target="_blank"
+          rel="noreferrer"
           className="shrink-0 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 text-[11px] sm:text-[14px] tracking-widest uppercase font-semibold hover:bg-[#1ebe5d] transition rounded-xl"
         >
-          WhatsApp
+          Triagem gratuita
           <span aria-hidden>→</span>
         </a>
 

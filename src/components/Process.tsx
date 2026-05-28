@@ -1,52 +1,41 @@
 import { useEffect, useRef, useState } from "react";
+import { WA_LINK } from "../lib/constants";
 
 const steps = [
   {
-    title: "Você entra em contato pelo WhatsApp",
-    body: "Nossa equipe responde com agilidade e agenda sua consulta com a Dra. Gabriela.",
+    title: "Você fala com a equipe pelo WhatsApp.",
+    body: "A triagem é gratuita. A gente entende seu momento, suas queixas e o que você já tentou.",
   },
   {
-    title: "Avaliação médica completa",
-    body: "A Dra. Gabriela investiga queixas, histórico clínico, exames, rotina, sono, alimentação, sintomas emocionais, uso de medicações e objetivos do paciente. Sem pressa, sem julgamento.",
+    title: "Agendamento da avaliação clínica.",
+    body: "Marcamos sua primeira consulta presencial com a Dra. Gabriela, no consultório em Fortaleza.",
   },
   {
-    title: "Plano terapêutico individualizado",
-    body: "A partir da avaliação, é definido um plano que pode envolver estratégias de emagrecimento integrativo, acompanhamento metabólico, suporte para saúde mental, orientação alimentar e, quando indicado, tecnologias avançadas como a EMT.",
+    title: "Avaliação completa, sem pressa.",
+    body: "Cerca de 1h. A Dra. investiga histórico, exames, rotina, sono, alimentação, sintomas emocionais e seus objetivos. Sem julgamento.",
   },
   {
-    title: "Acompanhamento contínuo",
-    body: "O paciente não fica sozinho após a consulta. O acompanhamento é pensado para gerar clareza, organização e segurança em cada etapa do tratamento.",
-  },
-  {
-    title: "Ajustes ao longo do caminho",
-    body: "O plano é revisado conforme a evolução do paciente, respeitando sua realidade, seus limites e seus objetivos.",
+    title: "Plano individualizado.",
+    body: "Você sai com um caminho claro: o que tratar primeiro, o que pedir de exame, o que ajustar na rotina e quando voltar. Acompanhamento contínuo, com ajustes ao longo do percurso.",
   },
 ];
 
 const faq = [
   {
-    q: "Este acompanhamento é para mim se eu quero apenas emagrecer, sem foco em saúde mental?",
-    a: "Sim. O acompanhamento pode ser direcionado conforme a necessidade de cada paciente. Se o objetivo principal é o emagrecimento, o plano é construído com esse foco, considerando os fatores metabólicos, hormonais, comportamentais e alimentares envolvidos.",
+    q: "O atendimento é presencial?",
+    a: "Sim. Todo o acompanhamento é presencial, no consultório da Dra. em Fortaleza. Não fazemos atendimento online — a avaliação clínica exige a presença pra ser feita com a profundidade que esse cuidado pede.",
   },
   {
-    q: "E se eu quero cuidar da saúde mental mas não tenho interesse em emagrecer?",
-    a: "Também é indicado. A abordagem integrativa atende pacientes com diferentes objetivos. O plano terapêutico é sempre individualizado conforme as necessidades e os objetivos de cada pessoa.",
+    q: "Quanto custa a consulta?",
+    a: "Valores e formas de pagamento são apresentados na triagem gratuita pelo WhatsApp, junto com a disponibilidade da agenda.",
   },
   {
-    q: "Quanto tempo leva para ver resultados?",
-    a: "Depende do quadro clínico, do histórico e dos objetivos de cada paciente. Alguns resultados, como mais clareza, menos ansiedade e melhora da energia, podem ser percebidos nas primeiras semanas. Outros, como o emagrecimento consistente, exigem um acompanhamento mais longo e contínuo.",
+    q: "Em quanto tempo eu vejo resultado?",
+    a: "Cada corpo responde de uma forma. A maioria das pacientes percebe mudanças no seu corpo, ansiedade, sono e disposição já nas primeiras semanas. Emagrecimento sustentável tende a aparecer a partir do segundo mês.",
   },
   {
-    q: "Preciso interromper meus tratamentos atuais para começar?",
-    a: "Não. Nenhuma conduta em andamento deve ser interrompida sem orientação profissional. A Dra. Gabriela avalia o histórico completo do paciente e constrói um plano que respeita e, quando possível, complementa os tratamentos existentes.",
-  },
-  {
-    q: "O acompanhamento é presencial ou online?",
-    a: "Essa informação será confirmada pela equipe no momento do agendamento, conforme a disponibilidade e a necessidade de cada paciente.",
-  },
-  {
-    q: "E se eu não conseguir manter a rotina proposta?",
-    a: "O acompanhamento não é construído para uma vida perfeita. Ele precisa caber na vida real. Por isso, as estratégias são pensadas considerando horários, rotina, preferências, limitações e desafios emocionais de cada paciente.",
+    q: "E se eu não conseguir seguir o plano direitinho?",
+    a: "A gente ajusta. O plano é vivo — feito pra caber na sua vida real, não numa vida ideal. Recaída faz parte. Aqui, ninguém te julga.",
   },
 ];
 
@@ -73,19 +62,18 @@ export default function Process() {
   return (
     <section id="processo" className="relative bg-bone py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Top */}
+
         <div className="grid lg:grid-cols-12 gap-12 items-end mb-16">
           <div className="lg:col-span-7" data-aos="fade-up">
-            <span className="eyebrow text-moss">O processo</span>
+            <span className="eyebrow text-moss">Como funciona</span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl text-sage leading-[1.05]">
-              Como funciona o acompanhamento{" "}
-              <em className="italic text-moss">com a Dra. Gabriela Aguiar.</em>
+              Quatro passos até o{" "}
+              <em className="italic text-moss">seu primeiro atendimento.</em>
             </h2>
           </div>
         </div>
 
-        {/* Steps */}
-        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
           {steps.map((s, i) => (
             <div
               key={s.title}
@@ -99,43 +87,36 @@ export default function Process() {
                   0{i + 1}
                 </span>
                 {i < steps.length - 1 && (
-                  <span className="text-moss/40 text-2xl hidden lg:inline">
-                    →
-                  </span>
+                  <span className="text-moss/40 text-2xl hidden lg:inline">→</span>
                 )}
               </div>
-              <h3 className="font-display text-xl text-sage leading-tight">
-                {s.title}
-              </h3>
-              <p className="mt-4 text-sm text-sage/75 leading-relaxed">
-                {s.body}
-              </p>
+              <h3 className="font-display text-xl text-sage leading-tight">{s.title}</h3>
+              <p className="mt-4 text-sm text-sage/75 leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA between */}
         <div className="mt-16 text-center" data-aos="fade-up">
           <a
-            href="#contato"
+            href={WA_LINK}
+            target="_blank"
+            rel="noreferrer"
             className="btn-primary inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 text-[15px] sm:text-[18px] tracking-widest uppercase hover:bg-[#1ebe5d] rounded-xl"
           >
-            Agendar minha avaliação médica
+            Começar pela triagem gratuita
             <span aria-hidden>→</span>
           </a>
         </div>
 
-        {/* FAQ */}
         <div id="faq" className="mt-32 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4" data-aos="fade-right">
-            <span className="eyebrow text-moss">FAQ</span>
+            <span className="eyebrow text-moss">Ainda em dúvida?</span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl text-sage leading-[1.05]">
-              Dúvidas que chegam{" "}
-              <em className="italic text-moss">com frequência.</em>
+              As perguntas que mais chegam{" "}
+              <em className="italic text-moss">aqui.</em>
             </h2>
             <p className="mt-6 text-sage/75 leading-relaxed text-[15px]">
-              Se restar alguma dúvida que não está aqui, fale com a equipe pelo
-              WhatsApp. Atendimento humano e sigiloso.
+              Se restar alguma dúvida que não está aqui, fale com a equipe pelo WhatsApp. Atendimento humano e sigiloso.
             </p>
           </div>
 
@@ -147,9 +128,7 @@ export default function Process() {
               >
                 <summary className="flex items-start justify-between gap-6 py-6 hover:text-moss transition">
                   <div className="flex gap-4">
-                    <span className="font-display text-xs text-moss pt-1">
-                      0{i + 1}
-                    </span>
+                    <span className="font-display text-xs text-moss pt-1">0{i + 1}</span>
                     <h4 className="font-display text-lg md:text-xl text-sage leading-snug">
                       {f.q}
                     </h4>
@@ -163,6 +142,7 @@ export default function Process() {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
